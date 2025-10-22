@@ -1,7 +1,30 @@
-@import "tailwindcss";
+/* index.css */
 
-/* 新增 DaisyUI 插件 */
-@plugin "daisyui";
+@import "tailwindcss";
+/* DaisyUI V5 設定 - 直接在 CSS 中配置 */
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
+/* TailwindCSS V4 dark mode 自定義變體 */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --color-background: #fff;
+  --color-foreground: #222;
+  --color-brand-primary: #3b82f6;
+  --color-surface: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-text-secondary: #64748b;
+}
+@theme.dark {
+  --color-background: #0f172a;
+  --color-foreground: #f8fafc;
+  --color-brand-primary: #60a5fa;
+  --color-surface: #23232b;
+  --color-border: #334155;
+  --color-text-secondary: #cbd5e1;
+}
 
 body {
   margin: 0;
@@ -15,3 +38,4 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+
